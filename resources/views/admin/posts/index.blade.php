@@ -19,9 +19,14 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td>{{ $post->updated_at }}</td>
-                <td>
+                <td class="d-flex">
                     <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary">Dettagli</a>
-                    <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning">Modifica</a>
+                    <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning ml-2">Modifica</a>
+                    <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger ml-2">Elimina</button>
+                    </form>
                 </td>
             </tr>
             @endforeach

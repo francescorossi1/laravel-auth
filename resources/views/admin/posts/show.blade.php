@@ -18,6 +18,11 @@
             <div class="d-flex justify-content-end">
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-primary">Torna Indietro</a>
                 <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning ml-2">Modifica</a>
+                <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger ml-2">Elimina</button>
+                </form>
             </div>
         </div>
     </div>
