@@ -21,6 +21,7 @@
                 <td>{{ $post->updated_at }}</td>
                 <td>
                     <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary">Dettagli</a>
+                    <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning">Modifica</a>
                 </td>
             </tr>
             @endforeach

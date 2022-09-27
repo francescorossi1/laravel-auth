@@ -17,6 +17,7 @@
         <div class="card-footer py-3">
             <div class="d-flex justify-content-end">
                 <a href="{{ route('admin.posts.index') }}" class="btn btn-primary">Torna Indietro</a>
+                <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning ml-2">Modifica</a>
             </div>
         </div>
     </div>
