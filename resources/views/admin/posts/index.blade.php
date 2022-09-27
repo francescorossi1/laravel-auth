@@ -3,18 +3,27 @@
 
 @section('content')
 <div class="container">
-    <div class="row row-cols-3">
+    <table class="table">
+        <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Titolo</th>
+              <th scope="col">Data Creazione</th>
+              <th scope="col">Ultima Modifica</th>
+              <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
         @foreach ($posts as $post)
-        <div class="col my-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h2>{{ $post->title }}</h2>
-                    <a href="#"><img src="{{ $post->image }}" alt="{{ $post->title }}" class="img-fluid"></a>
-                    <p>{{ $post->content }}</p>
-                </div>
-            </div>
-        </div>
+        <tr>
+          <th scope="row">{{ $post->id }}</th>
+          <td>{{ $post->title }}</td>
+          <td>{{ $post->created_at }}</td>
+          <td>{{ $post->updated_at }}</td>
+          <td>buttons</td>
+        </tr>         
         @endforeach
-    </div>
+        </tbody>
+    </table>
 </div>
 @endsection
