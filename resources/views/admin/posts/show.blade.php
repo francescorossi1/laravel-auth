@@ -5,13 +5,13 @@
     <div class="card">
         <div class="card-body">
             <h1>{{ $post->title }}</h1>
-            <h4>Categoria: 
+            <div>Categoria: 
                 @if($post->category)
-                {{ $post->category->label }}
+                <span class="badge badge-pill badge-{{ $post->category->color }}">{{ $post->category->label }}</span>
                 @else
                 Nessuna
                 @endif
-            </h4>
+            </div>
 
             <div class="clearfix">
                 <img src="{{ $post->image }}" alt="post image preview" class="float-left mr-3 mb-3 img-fluid">

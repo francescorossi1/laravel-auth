@@ -20,9 +20,10 @@
                 <td>{{ $post->title }}</td>
                 <td>
                     @if( $post->category )
-                    {{ $post->category->label }}
+                    <span class="badge badge-pill badge-{{ $post->category->color }}">{{ $post->category->label
+                        }}</span>
                     @else
-                    Nessuna categoria
+                    Nessuna
                     @endif
                 </td>
                 <td>{{ $post->created_at }}</td>
