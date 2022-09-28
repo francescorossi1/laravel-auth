@@ -10,6 +10,6 @@ class Post extends Model
 
     public function category()
     {
-        $this->belongsTo('App\Model\Category');
+        return $this->belongsTo('App\Models\Category');
     }
 }

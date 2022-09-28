@@ -5,6 +5,14 @@
     <div class="card">
         <div class="card-body">
             <h1>{{ $post->title }}</h1>
+            <h4>Categoria: 
+                @if($post->category)
+                {{ $post->category->label }}
+                @else
+                Nessuna
+                @endif
+            </h4>
+
             <div class="clearfix">
                 <img src="{{ $post->image }}" alt="post image preview" class="float-left mr-3 mb-3 img-fluid">
                 <p class="h4">{{ $post->content }}</p>

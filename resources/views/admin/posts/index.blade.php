@@ -7,6 +7,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Titolo</th>
+                <th scope="col">Categoria</th>
                 <th scope="col">Data Creazione</th>
                 <th scope="col">Ultima Modifica</th>
                 <th scope="col"></th>
@@ -17,6 +18,13 @@
             <tr>
                 <th scope="row">{{ $post->id }}</th>
                 <td>{{ $post->title }}</td>
+                <td>
+                    @if( $post->category )
+                    {{ $post->category->label }}
+                    @else
+                    Nessuna categoria
+                    @endif
+                </td>
                 <td>{{ $post->created_at }}</td>
                 <td>{{ $post->updated_at }}</td>
                 <td class="d-flex">

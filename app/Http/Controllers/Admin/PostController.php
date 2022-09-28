@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\support\Str;
@@ -27,7 +28,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -38,6 +40,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $post = new Post();
 
         $data = $request->all();
@@ -48,7 +51,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('admin.posts.show', $post->id);
+        return redirect()->route('admin.posts.show', compact('post'));
     }
 
     /**
@@ -70,7 +73,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**
