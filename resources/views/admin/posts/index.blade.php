@@ -6,6 +6,7 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Autore</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Data Creazione</th>
@@ -17,6 +18,13 @@
             @foreach ($posts as $post)
             <tr>
                 <th scope="row">{{ $post->id }}</th>
+                <td>
+                    @if( $post->user )
+                    <span>{{ $post->user->name }}</span>
+                    @else
+                    N/A
+                    @endif
+                </td>
                 <td>{{ $post->title }}</td>
                 <td>
                     @if( $post->category )

@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <h1>{{ $post->title }}</h1>
-            <div>Categoria: 
+            <div>Categoria:
                 @if($post->category)
                 <span class="badge badge-pill badge-{{ $post->category->color }}">{{ $post->category->label }}</span>
                 @else
@@ -17,6 +17,13 @@
                 <img src="{{ $post->image }}" alt="post image preview" class="float-left mr-3 mb-3 img-fluid">
                 <p class="h4">{{ $post->content }}</p>
             </div>
+            <p>
+                @if( $post->user )
+                <span>Autore: {{ $post->user->name }}</span>
+                @else
+                N/A
+                @endif
+            </p>
             <div class="d-flex justify-content-end">
                 <p class="h5"><strong>Data Creazione: </strong>{{ $post->created_at }}</p>
                 <p class="h5 ml-3"><strong>Ultima Modifica: </strong>{{ $post->updated_at }}</p>
