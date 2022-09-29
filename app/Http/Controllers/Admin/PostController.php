@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use App\Models\Category;
-use App\User;
-use App\Models\UserDetail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\support\Str;
@@ -19,8 +17,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        dd($users);
         $posts = Post::all();
         return view('admin.posts.index', compact('posts'));
     }
