@@ -9,6 +9,7 @@
                 <th scope="col">Autore</th>
                 <th scope="col">Titolo</th>
                 <th scope="col">Categoria</th>
+                <th scope="col">Tags</th>
                 <th scope="col">Data Creazione</th>
                 <th scope="col">Ultima Modifica</th>
                 <th scope="col"></th>
@@ -33,6 +34,15 @@
                     @else
                     Nessuna
                     @endif
+                </td>
+                <td>
+                    @forelse($post->tags as $tag)
+
+                    <!-- TODO tag color -->
+                    <span class="badge badge-pill">{{ $tag->label }}</span>
+                    @empty
+                    Nessuno
+                    @endforelse
                 </td>
                 <td>{{ $post->created_at }}</td>
                 <td>{{ $post->updated_at }}</td>

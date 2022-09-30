@@ -24,6 +24,15 @@
                 N/A
                 @endif
             </p>
+            <div>Tags:
+                @forelse($post->tags as $tag)
+
+                <!-- TODO tag color -->
+                <span class="badge badge-pill">{{ $tag->label }}</span>
+                @empty
+                Nessuno
+                @endforelse
+            </div>
             <div class="d-flex justify-content-end">
                 <p class="h5"><strong>Data Creazione: </strong>{{ $post->created_at }}</p>
                 <p class="h5 ml-3"><strong>Ultima Modifica: </strong>{{ $post->updated_at }}</p>
