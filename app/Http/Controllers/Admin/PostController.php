@@ -49,11 +49,14 @@ class PostController extends Controller
         $data = $request->all();
 
         $post->fill($data);
-
         $post->slug = Str::slug($post->title, '-');
 
         $post->user_id = Auth::id();
         $post->save();
+
+        if($data['tags']) {
+            $post->tags()->attach($data['tags']);
+        }
 
         return redirect()->route('admin.posts.show', compact('post'));
     }
