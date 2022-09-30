@@ -11,6 +11,8 @@
             <input type="text" class="form-control" id="title" placeholder="Inserisci un titolo" name="title"
                 value="{{ old('title', $post->title) }}">
         </div>
+
+        <!-- Category select -->
         <div class="form-group">
             <label for="category_id">Categoria</label>
             <select class="form-control" id="category_id" name="category_id">
@@ -20,6 +22,21 @@
               @endforeach
             </select>
           </div>
+
+        <!-- Tags checklist -->
+        @if(count($tags))
+        <div class="check-list">
+            @foreach($tags as $tag)
+            <div class="form-check form-check-inline">
+                
+                <!-- TODO old -->
+                <input class="form-check-input" @if (in_array($tag->id,old('tags', $selected_tags_ids)))checked @endif type="checkbox" id="tag-{{ $tag->label }}" value="{{ $tag->id }}" name="tags[]" >
+                <label class="form-check-label" for="tag-{{ $tag->label }}">{{ $tag->label }}</label>
+              </div>
+            @endforeach
+        </div>
+        @endif
+
         <div class="form-group">
             <label for="content">Contenuto</label>
             <textarea class="form-control" rows="8" id="content" name="content">{{ old('content', $post->content) }}</textarea>
