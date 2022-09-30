@@ -17,7 +17,7 @@ class TagSeeder extends Seeder
             ['label' => 'Frontend', 'color' => $faker->hexColor()],
             ['label' => 'Backend', 'color' => $faker->hexColor()],
             ['label' => 'Fullstack', 'color' => $faker->hexColor()],
-            ['label' => 'Framewok', 'color' => $faker->hexColor()],
+            ['label' => 'Framework', 'color' => $faker->hexColor()],
         ];
 
         foreach($tags as $tag){

@@ -101,6 +101,9 @@ class PostController extends Controller
         $post->user_id = Auth::id();
         $post->update($data);
 
+        if($data['tags']) $post->tags()->sync($data['tags']);
+        else $post->tags()->detach();
+
         return redirect()->route('admin.posts.show', $post);
     }
 
